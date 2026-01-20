@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SVT Terminale – ADN et ARN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .hero { background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 50px 20px; text-align: center; }
+    .card { border-radius: 15px; }
+    .exercise { margin-top: 20px; }
+    footer { background: #212529; color: white; padding: 20px 0; text-align: center; }
+    img { max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">📘 MathFacile & SVT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cours">Leçon</a></li>
+        <li class="nav-item"><a class="nav-link" href="#exercices">Exercices</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>SVT Terminale : ADN et ARN</h1>
+  <p>Leçon détaillée, images explicatives et exercices interactifs</p>
+</section>
+
+<!-- COURS -->
+<section id="cours" class="container my-5">
+  <h2 class="mb-4 text-center">Leçon : ADN et ARN</h2>
+
+  <div class="card shadow p-4 mb-3">
+    <h5>1️⃣ ADN (Acide Désoxyribonucléique)</h5>
+    <p>L'ADN est la molécule qui contient l'information génétique. Il est constitué de nucléotides : sucre (désoxyribose), phosphate et base azotée (A, T, C, G).</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/DNA_double_helix_horizontal.png/640px-DNA_double_helix_horizontal.png" alt="ADN Double hélice">
+    <p>Fonctions : stockage de l'information génétique, réplication et transmission aux cellules filles.</p>
+  </div>
+
+  <div class="card shadow p-4 mb-3">
+    <h5>2️⃣ ARN (Acide Ribonucléique)</h5>
+    <p>L'ARN est une molécule simple brin qui intervient dans la synthèse des protéines. Il existe plusieurs types : ARNm, ARNt, ARNr.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RNA_types.svg/640px-RNA_types.svg.png" alt="Types d'ARN">
+    <p>Fonctions : transcription, traduction et rôle dans la régulation génétique.</p>
+  </div>
+
+  <div class="card shadow p-4 mb-3">
+    <h5>3️⃣ Comparaison ADN vs ARN</h5>
+    <ul>
+      <li>ADN : double brin, sucre = désoxyribose, bases A-T-C-G</li>
+      <li>ARN : simple brin, sucre = ribose, bases A-U-C-G</li>
+    </ul>
+  </div>
+</section>
+
+    <!-- EXERCICES INTERACTIFS -->
+<section id="exercices" class="container my-5">
+  <h2 class="mb-4 text-center">Exercices interactifs</h2>
+
+  <!-- Exercice 1 : QCM ADN -->
+  <div class="card shadow p-4 mb-3">
+    <p><strong>Exercice 1 :</strong> Quelle base azotée remplace la Thymine (T) dans l'ARN ?</p>
+    <select id="exoSVT1" class="form-select mb-2">
+      <option value="">Choisir...</option>
+      <option value="A">Adenine (A)</option>
+      <option value="U">Uracile (U)</option>
+      <option value="C">Cytosine (C)</option>
+      <option value="G">Guanine (G)</option>
+    </select>
+    <button class="btn btn-primary" onclick="checkExoSVT('exoSVT1','resSVT1','U')">Vérifier</button>
+    <p id="resSVT1" class="mt-2 fw-bold"></p>
+  </div>
+
+  <!-- Exercice 2 : QCM ADN simple ou double brin -->
+  <div class="card shadow p-4 mb-3">
+    <p><strong>Exercice 2 :</strong> L'ADN est-il simple ou double brin ?</p>
+    <select id="exoSVT2" class="form-select mb-2">
+      <option value="">Choisir...</option>
+      <option value="simple">Simple brin</option>
+      <option value="double">Double brin</option>
+    </select>
+    <button class="btn btn-primary" onclick="checkExoSVT('exoSVT2','resSVT2','double')">Vérifier</button>
+    <p id="resSVT2" class="mt-2 fw-bold"></p>
+  </div>
+
+  <!-- Exercice 3 : compléter image ADN -->
+  <div class="card shadow p-4 mb-3">
+    <p><strong>Exercice 3 :</strong> Complétez les bases azotées de cette double hélice :</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/DNA_double_helix_horizontal.png/640px-DNA_double_helix_horizontal.png" alt="ADN" class="mb-3">
+    <input type="text" id="exoSVT3" class="form-control mb-2" placeholder="Exemple: A-T, C-G, ...">
+    <button class="btn btn-primary" onclick="checkExoSVT('exoSVT3','resSVT3','A-T,C-G')">Vérifier</button>
+    <p id="resSVT3" class="mt-2 fw-bold"></p>
+  </div>
+
+  <!-- Exercice 4 : correspondance ADN-ARN -->
+  <div class="card shadow p-4 mb-3">
+    <p><strong>Exercice 4 :</strong> Reliez chaque base d’ADN à sa base complémentaire d’ARN :</p>
+    <ul>
+      <li>A → ?</li>
+      <li>T → ?</li>
+      <li>C → ?</li>
+      <li>G → ?</li>
+    </ul>
+    <input type="text" id="exoSVT4" class="form-control mb-2" placeholder="Ex: A-U, T-A, C-G, G-C">
+    <button class="btn btn-primary" onclick="checkExoSVT('exoSVT4','resSVT4','A-U,T-A,C-G,G-C')">Vérifier</button>
+    <p id="resSVT4" class="mt-2 fw-bold"></p>
+  </div>
+
+  <!-- Exercice 5 : identifier ARN dans schéma -->
+  <div class="card shadow p-4 mb-3">
+    <p><strong>Exercice 5 :</strong> Indiquez le type d’ARN représenté sur cette image :</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RNA_types.svg/640px-RNA_types.svg.png" alt="Types ARN" class="mb-3">
+    <input type="text" id="exoSVT5" class="form-control mb-2" placeholder="Ex: ARNm, ARNt, ARNr">
+    <button class="btn btn-primary" onclick="checkExoSVT('exoSVT5','resSVT5','ARNm,ARnt,ARNr')">Vérifier</button>
+    <p id="resSVT5" class="mt-2 fw-bold"></p>
+  </div>
+
+    <!-- Exercice 6 : Transcription ADN → ARN -->
+<div class="card shadow p-4 mb-3">
+  <p><strong>Exercice 6 :</strong> Transcrire l’ADN en ARN :</p>
+  <p>ADN : 5’-ATG CCT GAA TAA-3’</p>
+  <input type="text" id="exoSVT6" class="form-control mb-2" placeholder="Votre réponse (ex: AUG CCU GAA UAA)">
+  <button class="btn btn-primary" onclick="checkExoSVT('exoSVT6','resSVT6','AUGCCUGAAUAA')">Vérifier</button>
+  <p id="resSVT6" class="mt-2 fw-bold"></p>
+</div>
+
+<!-- Exercice 7 : Traduction ARN → protéine -->
+<div class="card shadow p-4 mb-3">
+  <p><strong>Exercice 7 :</strong> Traduire l’ARN suivant en chaîne d’acides aminés :</p>
+  <p>ARN : AUG-GCC-GAA-UAA</p>
+  <input type="text" id="exoSVT7" class="form-control mb-2" placeholder="Votre réponse (ex: Met-Ala-Glu)">
+  <button class="btn btn-primary" onclick="checkExoSVT('exoSVT7','resSVT7','Met-Ala-Glu')">Vérifier</button>
+  <p id="resSVT7" class="mt-2 fw-bold"></p>
+</div>
+
+<!-- Exercice 8 : Mutation ADN -->
+<div class="card shadow p-4 mb-3">
+  <p><strong>Exercice 8 :</strong> Une mutation change une base C en T dans la séquence ADN :</p>
+  <p>ADN normal : 5’-ATG CCT GAA-3’</p>
+  <p>ADN muté : 5’-ATG CTT GAA-3’</p>
+  <input type="text" id="exoSVT8" class="form-control mb-2" placeholder="Effet sur la protéine ?">
+  <button class="btn btn-primary" onclick="checkExoSVT('exoSVT8','resSVT8','Met-Leu-Glu')">Vérifier</button>
+  <p id="resSVT8" class="mt-2 fw-bold"></p>
+</div>
+
+<!-- Exercice 9 : Réplication ADN -->
+<div class="card shadow p-4 mb-3">
+  <p><strong>Exercice 9 :</strong> Compléter la séquence complémentaire pour la réplication :</p>
+  <p>ADN brin matrice : 5’-ATG CCT GAA-3’</p>
+  <input type="text" id="exoSVT9" class="form-control mb-2" placeholder="Séquence complémentaire (ex: TAC GGA CTT)">
+  <button class="btn btn-primary" onclick="checkExoSVT('exoSVT9','resSVT9','TACGGACTT')">Vérifier</button>
+  <p id="resSVT9" class="mt-2 fw-bold"></p>
+</div>
+
+</section>
+
+<script>
+function checkExoSVT(inputId,resultId,correctAnswer){
+  const input=document.getElementById(inputId).value.trim();
+  const result=document.getElementById(resultId);
+  // accepter minuscules et espaces
+  if(input.replace(/\s+/g,'').toUpperCase()===correctAnswer.replace(/\s+/g,'').toUpperCase()){
+    result.textContent='✅ Correct !';
+    result.style.color='green';
+    localStorage.setItem(inputId,'completed');
+  }else{
+    result.textContent='❌ Incorrect, réessayez.';
+    result.style.color='red';
+  }
+}
+
+// Charger progression si nécessaire
+window.onload = function(){
+  const exercises = ['exoSVT1','exoSVT2','exoSVT3','exoSVT4','exoSVT5'];
+  exercises.forEach(id=>{
+    if(localStorage.getItem(id)=='completed'){
+      document.getElementById(id).nextElementSibling.nextElementSibling.textContent='✅ Correct !';
+      document.getElementById(id).nextElementSibling.nextElementSibling.style.color='green';
+    }
+  });
+}
+</script>
+
+
+<!-- CONTACT -->
+<section id="contact" class="container my-5">
+  <h2 class="mb-4 text-center">Contact</h2>
+  <div class="card p-4 shadow">
+    <input type="text" class="form-control mb-3" placeholder="Votre nom">
+    <input type="email" class="form-control mb-3" placeholder="Votre email">
+    <textarea class="form-control mb-3" placeholder="Votre message"></textarea>
+    <button class="btn btn-success">Envoyer</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 MathFacile & SVT – Leçons Terminale</p>
+</footer>
+
+<script>
+function checkExoSVT(inputId,resultId,correctAnswer){
+  const input=document.getElementById(inputId).value.trim();
+  const result=document.getElementById(resultId);
+  if(input.toUpperCase()===correctAnswer.toUpperCase()){
+    result.textContent='✅ Correct !';
+    result.style.color='green';
+    localStorage.setItem(inputId,'completed');
+  }else{
+    result.textContent='❌ Incorrect, réessayez.';
+    result.style.color='red';
+  }
+}
+
+// Charger progression si nécessaire
+window.onload = function(){
+  const exercises = ['exoSVT1','exoSVT2','exoSVT3','exoSVT4','exoSVT5','exoSVT6','exoSVT7','exoSVT8','exoSVT9'];
+  exercises.forEach(id=>{
+    if(localStorage.getItem(id)=='completed'){
+      const result = document.getElementById('res'+id.substring(0,1).toUpperCase()+id.substring(1));
+      if(result) {
+        result.textContent='✅ Correct !';
+        result.style.color='green';
+      }
+    }
+  });
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

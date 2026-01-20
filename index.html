@@ -14,6 +14,7 @@
     .exercise { margin-top: 20px; }
   </style>
   <!-- <script src="https://pl28521373.effectivegatecpm.com/7c/30/b6/7c30b61f77b5ba925a3d56e80a68496f.js"></script> -->
+  <!-- <script src="https://pl28521373.effectivegatecpm.com/7c/30/b6/7c30b61f77b5ba925a3d56e80a68496f.js"></script> -->
 </head>
 <body>
 
@@ -33,6 +34,7 @@
         <li class="nav-item"><a class="nav-link" href="#complexes">Nombres complexes</a></li>
         <li class="nav-item"><a class="nav-link" href="#geometrie">Géométrie</a></li>
         <li class="nav-item"><a class="nav-link" href="#probabilites">Probabilités</a></li>
+        <li class="nav-item"><a class="nav-link" href="svt.html">SVT Terminale</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -100,6 +102,69 @@
       <p id="resultExoF1" class="mt-2 fw-bold"></p>
     </div>
   </div>
+
+    <!-- Domaine de définition -->
+<div class="card shadow p-4 mb-3">
+  <h5>Domaine de définition</h5>
+  <p>Exemple : f(x) = √(x-1)</p>
+  <div class="exercise">
+    <p><strong>Exercice :</strong> Déterminer le domaine de f(x) = 1/(x-2)</p>
+    <input type="text" id="domF1" class="form-control mb-2" placeholder="Votre réponse (ex: x≠2)">
+    <button class="btn btn-primary" onclick="checkExercise('domF1','resDomF1','x≠2')">Vérifier</button>
+    <p id="resDomF1" class="mt-2 fw-bold"></p>
+  </div>
+</div>
+
+<!-- Limite -->
+<div class="card shadow p-4 mb-3">
+  <h5>Limite</h5>
+  <div class="exercise">
+    <p><strong>Exercice :</strong> Calculer lim x→0 (sin(x)/x)</p>
+    <input type="text" id="limF1" class="form-control mb-2" placeholder="Votre réponse">
+    <button class="btn btn-primary" onclick="checkExercise('limF1','resLimF1','1')">Vérifier</button>
+    <p id="resLimF1" class="mt-2 fw-bold"></p>
+  </div>
+</div>
+
+<!-- Dérivée -->
+<div class="card shadow p-4 mb-3">
+  <h5>Dérivée</h5>
+  <div class="exercise">
+    <p><strong>Exercice :</strong> Calculer f'(x) si f(x)=x³-2x</p>
+    <input type="text" id="derF1" class="form-control mb-2" placeholder="Votre réponse (ex: 3x²-2)">
+    <button class="btn btn-primary" onclick="checkExercise('derF1','resDerF1','3x²-2')">Vérifier</button>
+    <p id="resDerF1" class="mt-2 fw-bold"></p>
+  </div>
+</div>
+
+<!-- Signe de la dérivée -->
+<div class="card shadow p-4 mb-3">
+  <h5>Signe de la dérivée</h5>
+  <div class="exercise">
+    <p><strong>Exercice :</strong> Déterminer le signe de f'(x)=2x-4</p>
+    <input type="text" id="signeF1" class="form-control mb-2" placeholder="Votre réponse (ex: f'>0 si x>2,f'<0 si x<2)">
+    <button class="btn btn-primary" onclick="checkExercise('signeF1','resSigneF1','f\'>0 si x>2,f\'<0 si x<2')">Vérifier</button>
+    <p id="resSigneF1" class="mt-2 fw-bold"></p>
+  </div>
+</div>
+
+<!-- Tableau de variation -->
+<div class="card shadow p-4 mb-3">
+  <h5>Tableau de variation</h5>
+  <div class="exercise">
+    <p><strong>Exercice :</strong> Construire le tableau de variation de f(x)=x²-4x+3</p>
+    <input type="text" id="tabF1" class="form-control mb-2" placeholder="Votre réponse (ex: min en x=2, f croît>2, f décroît<2)">
+    <button class="btn btn-primary" onclick="checkExercise('tabF1','resTabF1','min en x=2,f croît>2,f décroît<2')">Vérifier</button>
+    <p id="resTabF1" class="mt-2 fw-bold"></p>
+  </div>
+</div>
+
+<!-- Graphique -->
+<div class="card shadow p-4 mb-3">
+  <h5>Graphique</h5>
+  <canvas id="graphF1" width="400" height="200"></canvas>
+</div>
+
 </section>
 
 <!-- ALGEBRE -->
@@ -190,5 +255,49 @@ function verifExoP1(){let r=document.getElementById('exoP1').value,res=document.
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+function checkExercise(inputId, resultId, correctAnswer) {
+  const input = document.getElementById(inputId).value.trim();
+  const result = document.getElementById(resultId);
+  if(input === correctAnswer){
+    result.textContent = '✅ Correct !';
+    result.style.color = 'green';
+    localStorage.setItem(inputId,'completed');
+    document.getElementById(resultId).parentElement.classList.add('completed');
+  } else {
+    result.textContent = '❌ Incorrect, réessayez.';
+    result.style.color = 'red';
+  }
+}
+
+// Charger la progression
+window.onload = function() {
+  const exercises = ['domF1','limF1','derF1','signeF1','tabF1'];
+  exercises.forEach(id => {
+    if(localStorage.getItem(id) === 'completed'){
+      const input = document.getElementById(id);
+      const result = document.getElementById('res'+id.substring(0,1).toUpperCase()+id.substring(1));
+      input.parentElement.classList.add('completed');
+      result.textContent = '✅ Correct !';
+      result.style.color = 'green';
+    }
+  });
+
+  // Graphique f(x)=x²-4x+3
+  const ctx = document.getElementById('graphF1').getContext('2d');
+  const data = {
+    labels: [-1,0,1,2,3,4,5,6],
+    datasets: [{
+      label: 'f(x)=x²-4x+3',
+      data: [8,3,0,-1,0,3,8,15],
+      borderColor: 'blue',
+      fill: false
+    }]
+  };
+  new Chart(ctx, { type: 'line', data: data, options: { scales: { y: { beginAtZero: false } } } });
+};
+</script>
+
 </body>
 </html>
