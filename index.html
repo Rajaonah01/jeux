@@ -1,94 +1,193 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bien-Être Total</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>MathFacile – Terminale BAC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .hero { background: linear-gradient(135deg, #0d6efd, #6610f2); color: white; padding: 60px 20px; }
+    .card { border-radius: 15px; }
+    footer { background: #212529; color: white; padding: 20px 0; }
+    .cours-section { margin-bottom: 50px; }
+    .exercise { margin-top: 20px; }
+  </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-    <div class="logo">Bien-Être Total de alika be</div>
-    <ul>
-        <li><a href="#home">Accueil</a></li>
-        <li><a href="#physical">Physique</a></li>
-        <li><a href="#mental">Mental</a></li>
-        <li><a href="#nutrition">Nutrition</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">📘 MathFacile</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#analyse">Analyse</a></li>
+        <li class="nav-item"><a class="nav-link" href="#suites">Suites</a></li>
+        <li class="nav-item"><a class="nav-link" href="#fonctions">Fonctions</a></li>
+        <li class="nav-item"><a class="nav-link" href="#algebre">Algèbre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#complexes">Nombres complexes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#geometrie">Géométrie</a></li>
+        <li class="nav-item"><a class="nav-link" href="#probabilites">Probabilités</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<!-- Header -->
-<header id="home">
-    <div class="header-content">
-        <h1>Bienvenue dans votre espace bien-être</h1>
-        <p>Conseils et astuces pour rester en forme et heureux, pour femmes et hommes</p>
-        <a href="#contact" class="btn">Contactez-nous</a>
-    </div>
-</header>
-
-<!-- Sections -->
-<section id="physical">
-    <h2>Bien-être Physique</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Exercices quotidiens</h3>
-            <p>Des routines simples pour rester en forme à la maison.</p>
-        </div>
-        <div class="card">
-            <h3>Fitness et yoga</h3>
-            <p>Améliorez votre souplesse et votre endurance.</p>
-        </div>
-    </div>
+<!-- HERO -->
+<section class="hero text-center">
+  <div class="container">
+    <h1>Bienvenue sur MathFacile</h1>
+    <p class="lead">Cours détaillés et exercices interactifs pour le BAC Terminale</p>
+  </div>
 </section>
 
-<section id="mental">
-    <h2>Bien-être Mental</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Méditation</h3>
-            <p>Techniques pour réduire le stress et rester zen.</p>
-        </div>
-        <div class="card">
-            <h3>Gestion du sommeil</h3>
-            <p>Conseils pour améliorer la qualité de votre sommeil.</p>
-        </div>
+<!-- ANALYSE -->
+<section id="analyse" class="container cours-section">
+  <h2 class="text-center mb-4">📐 Analyse</h2>
+  <div class="card shadow p-4 mb-3">
+    <h5>Limites et Continuité</h5>
+    <p>Une fonction f(x) a une limite L en x→a si les valeurs de f(x) se rapprochent de L lorsque x se rapproche de a. Ex: lim x→2 (3x+1) = 7</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Calculer lim x→3 (2x² - 5)</p>
+      <input type="text" id="exoA1" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoA1()">Vérifier</button>
+      <p id="resultExoA1" class="mt-2 fw-bold"></p>
     </div>
-</section>
-
-<section id="nutrition">
-    <h2>Nutrition</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Alimentation équilibrée</h3>
-            <p>Idées repas pour femmes et hommes.</p>
-        </div>
-        <div class="card">
-            <h3>Hydratation</h3>
-            <p>Importance de boire de l’eau et de rester hydraté.</p>
-        </div>
+  </div>
+  <div class="card shadow p-4 mb-3">
+    <h5>Dérivées</h5>
+    <p>La dérivée f'(x) représente le taux de variation de la fonction. Elle permet de trouver les extremums. Ex: f(x) = x² ⇒ f'(x) = 2x</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Calculer la dérivée de f(x) = 3x² + 2x</p>
+      <input type="text" id="exoA2" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoA2()">Vérifier</button>
+      <p id="resultExoA2" class="mt-2 fw-bold"></p>
     </div>
+  </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-    <h2>Contactez-nous</h2>
-    <form id="contactForm">
-        <input type="text" placeholder="Nom" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-    </form>
-    <p id="formMessage"></p>
+<!-- SUITES -->
+<section id="suites" class="container cours-section">
+  <h2 class="text-center mb-4">🔢 Suites</h2>
+  <div class="card shadow p-4 mb-3">
+    <h5>Suites arithmétiques et géométriques</h5>
+    <p>Suite arithmétique : u_n = u_0 + n*r | Suite géométrique : u_n = u_0*q^n</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Calculer u_5 si u_0=2 et r=3 (arithmétique)</p>
+      <input type="text" id="exoS1" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoS1()">Vérifier</button>
+      <p id="resultExoS1" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
 </section>
 
-<!-- Footer -->
-<footer>
-    &copy; 2026 Bien-Être Total - Tous droits réservés
+<!-- FONCTIONS -->
+<section id="fonctions" class="container cours-section">
+  <h2 class="text-center mb-4">📈 Fonctions</h2>
+  <div class="card shadow p-4 mb-3">
+    <h5>Exponentielle et Logarithme</h5>
+    <p>f(x) = e^x ou f(x) = ln(x). Propriétés et variations.</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Calculer ln(e^3)</p>
+      <input type="text" id="exoF1" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoF1()">Vérifier</button>
+      <p id="resultExoF1" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ALGEBRE -->
+<section id="algebre" class="container cours-section">
+  <h2 class="text-center mb-4">🧮 Algèbre</h2>
+  <div class="card shadow p-4 mb-3">
+    <h5>Équations et Inéquations</h5>
+    <p>Résolution d'équations du second degré et systèmes. Ex: x² - 5x + 6 = 0 ⇒ x = 2 ou 3</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Résoudre x² - 3x - 4 = 0</p>
+      <input type="text" id="exoAl1" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoAl1()">Vérifier</button>
+      <p id="resultExoAl1" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<!-- NOMBRES COMPLEXES -->
+<section id="complexes" class="container cours-section">
+  <h2 class="text-center mb-4">🔢 Nombres complexes</h2>
+  <div class="card shadow p-4 mb-3">
+    <h5>Forme algébrique et opérations</h5>
+    <p>z = a + ib, module et argument. Addition, multiplication et conjugaison.</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Calculer z = (3+2i) + (1-5i)</p>
+      <input type="text" id="exoC1" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoC1()">Vérifier</button>
+      <p id="resultExoC1" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<!-- GEOMETRIE -->
+<section id="geometrie" class="container cours-section">
+  <h2 class="text-center mb-4">📐 Géométrie</h2>
+  <div class="card shadow p-4 mb-3">
+    <h5>Vecteurs et Droites</h5>
+    <p>Vecteurs, droites et plans dans l’espace. Ex: équation de droite et distance entre points.</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Calculer le vecteur AB si A(1,2,3), B(4,0,5)</p>
+      <input type="text" id="exoG1" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoG1()">Vérifier</button>
+      <p id="resultExoG1" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBABILITÉS -->
+<section id="probabilites" class="container cours-section">
+  <h2 class="text-center mb-4">🎲 Probabilités et Statistiques</h2>
+  <div class="card shadow p-4 mb-3">
+    <h5>Loi binomiale</h5>
+    <p>Calcul de la probabilité P(X=k) = C(n,k) * p^k * (1-p)^(n-k)</p>
+    <div class="exercise">
+      <p><strong>Exercice :</strong> Pour n=3, p=0.5, calculer P(X=2)</p>
+      <input type="text" id="exoP1" class="form-control mb-2" placeholder="Votre réponse">
+      <button class="btn btn-primary" onclick="verifExoP1()">Vérifier</button>
+      <p id="resultExoP1" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container cours-section">
+  <h2 class="text-center mb-4">📩 Contact</h2>
+  <div class="card p-4 shadow">
+    <input type="text" class="form-control mb-3" placeholder="Votre nom">
+    <input type="email" class="form-control mb-3" placeholder="Votre email">
+    <textarea class="form-control mb-3" placeholder="Votre message"></textarea>
+    <button class="btn btn-success">Envoyer</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center">
+  <p>© 2026 MathFacile – Cours et exercices Terminale</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+function verifExoA1(){let r=document.getElementById('exoA1').value,res=document.getElementById('resultExoA1');res.textContent=r==='13'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='13'?'green':'red';}
+function verifExoA2(){let r=document.getElementById('exoA2').value,res=document.getElementById('resultExoA2');res.textContent=r==='6x+2'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='6x+2'?'green':'red';}
+function verifExoS1(){let r=document.getElementById('exoS1').value,res=document.getElementById('resultExoS1');res.textContent=r==='14'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='14'?'green':'red';}
+function verifExoF1(){let r=document.getElementById('exoF1').value,res=document.getElementById('resultExoF1');res.textContent=r==='3'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='3'?'green':'red';}
+function verifExoAl1(){let r=document.getElementById('exoAl1').value,res=document.getElementById('resultExoAl1');res.textContent=r==='4,-1'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='4,-1'?'green':'red';}
+function verifExoC1(){let r=document.getElementById('exoC1').value,res=document.getElementById('resultExoC1');res.textContent=r==='4-3i'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='4-3i'?'green':'red';}
+function verifExoG1(){let r=document.getElementById('exoG1').value,res=document.getElementById('resultExoG1');res.textContent=r==='3,-2,2'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='3,-2,2'?'green':'red';}
+function verifExoP1(){let r=document.getElementById('exoP1').value,res=document.getElementById('resultExoP1');res.textContent=r==='0.375'?'✅ Correct !':'❌ Incorrect, réessayez.';res.style.color=r==='0.375'?'green':'red';}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
